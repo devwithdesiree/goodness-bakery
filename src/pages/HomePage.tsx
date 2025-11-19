@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import heroImage from "../assets/hero-cookie.jpg";
 
 
 export default function HomePage() {
@@ -42,7 +43,7 @@ export default function HomePage() {
 
         {/* Main photo */}
         <img
-          src="./../public/hero-cookie.jpg"
+          src={heroImage}
           alt="Goodness Bakery Cookies"
           className="
             relative 
