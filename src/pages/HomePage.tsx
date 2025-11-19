@@ -37,7 +37,7 @@ export default function HomePage() {
       </div>
 
       {/* RIGHT SIDE — IMAGE WITH BACKGROUND CARD */}
-      <div className="relative max-w-md mx-auto">
+      <div className="relative max-w-md mx-auto w-full">
         {/* Background offset card */}
         <div className="absolute -right-4 top-4 w-full h-full bg-goodness-caramel/30 rounded-3xl"></div>
 
@@ -59,7 +59,7 @@ export default function HomePage() {
     </section>
 
 {/* MISSION SECTION */}
-<section className="max-w-5xl mx-auto px-6 py-20 text-center bg-goodness-cream/60 rounded-3xl shadow-sm mt-10 border border-goodness-sugar/50">
+<section className="max-w-5xl mx-auto mt-20 px-6 py-20 text-center bg-goodness-cream/60 rounded-3xl shadow-sm mt-10 border border-goodness-sugar/50">
   
   {/* decorative accent */}
   <div className="w-16 h-1 bg-goodness-caramel mx-auto mb-4 rounded-full"></div>
@@ -98,7 +98,8 @@ export default function HomePage() {
   <div className="grid md:grid-cols-2 gap-8">
 
     {/* SUGAR COOKIES */}
-    <div className="p-6 bg-white border border-goodness-sugar rounded-2xl shadow-sm hover:shadow-md transition">
+    <div className="p-6 bg-white border border-goodness-sugar rounded-2xl shadow-sm hover:shadow-md transition hover:shadow-lg hover:-translate-y-[2px] transition
+">
       <div className="flex justify-between items-start">
         <h3 className="text-lg font-semibold text-goodness-chocolate">
           Sugar Cookies – 6 Pack
@@ -195,7 +196,7 @@ export default function HomePage() {
   </div>
 </section>
 {/* CONTACT SECTION WITH FORM */}
-<section className="max-w-5xl mx-auto px-6 py-20" id="contact">
+<section className="max-w-5xl mx-auto max-w-2xl px-6 py-20" id="contact">
   <h2 className="text-2xl md:text-3xl font-semibold text-goodness-chocolate text-center mb-4">
     Get In Touch
   </h2>
