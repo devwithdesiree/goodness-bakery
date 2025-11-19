@@ -24,7 +24,7 @@ export default function PreorderPage() {
   const [error, setError] = useState("");
 
   // 🔸 REPLACE this with your real Formspree endpoint
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdkbadrl";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
 
   function handleChange(
     e: React.ChangeEvent<
@@ -311,7 +311,7 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdkbadrl";
 
     <p>
       📍 <span className="font-medium text-goodness-chocolate">Location:</span>  
-      Dallas, TX (pickup available)
+      Moore, OK (pickup available)
     </p>
   </div>
 

@@ -52,7 +52,7 @@ export default function ContactPage() {
         <h3 className="font-semibold text-goodness-chocolate mb-4">Send a Message</h3>
 
         <form
-          action="https://formspree.io/f/mpwbdyaa"
+          action="https://formspree.io/f/mldznkdd"
           method="POST"
           className="grid gap-4"
         >
