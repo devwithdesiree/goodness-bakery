@@ -24,7 +24,7 @@ export default function HomePage() {
   },
   "url": "https://thegoodnessbakery.com",
   "telephone": "",
-  "email": "thegoodnessbakery@gmail.com",
+  "email": "tastethegoodnessbakery@gmail.com",
   "priceRange": "$$",
   "servesCuisine": "Bakery",
   "sameAs": [],
@@ -308,7 +308,7 @@ export default function HomePage() {
   </form>
 
   <div className="text-center mt-12 space-y-2 text-sm text-goodness-chocolate/80">
-    <p>Email: thegoodnessbakery@gmail.com</p>
+    <p>Email: tastethegoodnessbakery@gmail.com</p>
     <p>Phone: (405) 967-9160</p>
     <p>Norman, OK — Pickup Available</p>
   </div>

@@ -44,7 +44,7 @@ export default function ContactPage() {
         </p>
 
         <p className="text-goodness-chocolate/80">
-          📧 thegoodnessbakery@gmail.com
+          📧 tastethegoodnessbakery@gmail.com
         </p>
 
         <hr className="my-8 border-goodness-sugar" />

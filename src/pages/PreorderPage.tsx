@@ -301,7 +301,7 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdkbadrl";
   <div className="space-y-3 text-goodness-chocolate/80 text-sm">
     <p>
       📧 <span className="font-medium text-goodness-chocolate">Email:</span>  
-      goodnessbakery@gmail.com
+      tastethegoodnessbakery@gmail.com
     </p>
 
     <p>

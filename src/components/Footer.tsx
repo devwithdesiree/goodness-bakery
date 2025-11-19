@@ -30,7 +30,7 @@ export default function Footer() {
         <div className="text-sm">
           <h4 className="font-semibold text-goodness-cream mb-3">Get in Touch</h4>
           <p className="text-goodness-cream/90">Moore, OK — Pickup Available</p>
-          <p className="text-goodness-cream/90 mt-1">thegoodnessbakery@gmail.com</p>
+          <p className="text-goodness-cream/90 mt-1">tastethegoodnessbakery@gmail.com</p>
 
           
         </div>
