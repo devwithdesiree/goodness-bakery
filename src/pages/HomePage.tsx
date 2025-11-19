@@ -1,10 +1,80 @@
 import { Link } from "react-router-dom";
 import heroImage from "../assets/hero-cookie.jpg";
+import { Helmet } from "react-helmet";
+
 
 
 export default function HomePage() {
   return (
     <div>
+      <Helmet>
+        <script type="application/ld+json">
+{`
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Goodness Bakery",
+  "image": "https://thegoodnessbakery.com/hero-cookie.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Moore",
+    "addressLocality": "Moore",
+    "addressRegion": "OK",
+    "addressCountry": "US"
+  },
+  "url": "https://thegoodnessbakery.com",
+  "telephone": "",
+  "email": "thegoodnessbakery@gmail.com",
+  "priceRange": "$$",
+  "servesCuisine": "Bakery",
+  "sameAs": [],
+  "description": "Small-batch, faith-centered home bakery in Moore, Oklahoma offering homemade cookies and buttery rolls.",
+  "areaServed": {
+    "@type": "City",
+    "name": "Moore"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "opens": "09:00",
+    "closes": "18:00"
+  }],
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": "Sugar Cookies" },
+    { "@type": "Offer", "itemOffered": "Chocolate Chip Cookies" },
+    { "@type": "Offer", "itemOffered": "Butter Rolls" }
+  ]
+}
+`}
+</script>
+
+  <title>Goodness Bakery | Homemade Cookies & Rolls in Moore, Oklahoma</title>
+  <meta
+    name="description"
+    content="Goodness Bakery is a small-batch, faith-centered bakery in Moore, Oklahoma. Fresh homemade cookies, thick chocolate chip, sugar cookies, and buttery rolls available for preorder."
+  />
+  <meta
+    name="keywords"
+    content="Moore OK bakery, homemade cookies Moore Oklahoma, bakery near Moore, fresh baked cookies Oklahoma, small batch bakery OK, cookie shop Moore"
+  />
+
+  <meta property="og:title" content="Goodness Bakery – Fresh Homemade Cookies in Moore, Oklahoma" />
+  <meta
+    property="og:description"
+    content="Thick, cozy homemade cookies and buttery rolls baked fresh in Moore, OK. Faith-centered, small-batch, handcrafted goodness."
+  />
+  <meta property="og:image" content="https://thegoodnessbakery.com/hero-cookie.jpg" />
+  <meta property="og:url" content="https://thegoodnessbakery.com/" />
+  <meta property="og:type" content="website" />
+</Helmet>
+
       <section className="max-w-6xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
       {/* LEFT SIDE — TEXT */}
       <div>

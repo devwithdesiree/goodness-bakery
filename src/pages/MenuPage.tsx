@@ -1,7 +1,80 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function MenuPage() {
-  return (
+  return (<>
+  <Helmet>
+    <script type="application/ld+json">
+{`
+[
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Sugar Cookies – 6 Pack",
+    "image": "https://thegoodnessbakery.com/hero-cookie.jpg",
+    "description": "Soft, thick melt-in-your-mouth sugar cookies with buttery vanilla and nutmeg.",
+    "brand": "Goodness Bakery",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": "15.99",
+      "availability": "https://schema.org/InStock",
+      "url": "https://thegoodnessbakery.com/preorder"
+    }
+  },
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Chocolate Chip Cookies – 6 Pack",
+    "image": "https://thegoodnessbakery.com/hero-cookie.jpg",
+    "description": "Thick, chewy cookies loaded with melty chocolate chips and a soft gooey center.",
+    "brand": "Goodness Bakery",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": "17.99",
+      "availability": "https://schema.org/InStock",
+      "url": "https://thegoodnessbakery.com/preorder"
+    }
+  },
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Butter Rolls – 4 Pack",
+    "image": "https://thegoodnessbakery.com/hero-cookie.jpg",
+    "description": "Fluffy, extra-milky homemade butter rolls brushed with warm sweet cream.",
+    "brand": "Goodness Bakery",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "USD",
+      "price": "11.99",
+      "availability": "https://schema.org/InStock",
+      "url": "https://thegoodnessbakery.com/preorder"
+    }
+  }
+]
+`}
+</script>
+
+  <title>Menu | Goodness Bakery – Fresh Cookies & Butter Rolls in Moore, OK</title>
+  <meta
+    name="description"
+    content="Explore our fresh bakery menu in Moore, Oklahoma. Sugar cookies, thick chocolate chip cookies, and buttery rolls baked fresh for preorder."
+  />
+  <meta
+    name="keywords"
+    content="Moore OK bakery menu, cookies Moore Oklahoma, chocolate chip cookies OK, sugar cookies Moore OK, bakery near Moore OK"
+  />
+
+  <meta property="og:title" content="Goodness Bakery Menu – Cookies & Rolls in Moore, OK" />
+  <meta
+    property="og:description"
+    content="Check out our small-batch bakery menu featuring chocolate chip cookies, sugar cookies, and butter rolls made fresh in Moore, Oklahoma."
+  />
+  <meta property="og:url" content="https://thegoodnessbakery.com/menu" />
+  <meta property="og:type" content="article" />
+</Helmet>
+
     <div className="max-w-5xl mx-auto px-4 py-16">
       <h1 className="text-3xl font-semibold text-goodness-chocolate mb-6">
         Our Menu
@@ -85,5 +158,6 @@ export default function MenuPage() {
 
       </div>
     </div>
+    </>
   );
 }

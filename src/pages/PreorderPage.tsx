@@ -1,4 +1,5 @@
 import { type FormEvent, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const paymentLinks: Record<string, string> = {
@@ -98,6 +99,27 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdkbadrl";
   }
 
   return (
+    <>
+    <Helmet>
+  <title>Preorder | Goodness Bakery – Homemade Cookies in Moore, Oklahoma</title>
+  <meta
+    name="description"
+    content="Preorder your fresh homemade cookies and buttery rolls from Goodness Bakery in Moore, OK. Secure your batch before we sell out!"
+  />
+  <meta
+    name="keywords"
+    content="preorder cookies Moore OK, order bakery Moore Oklahoma, preorder homemade cookies OK"
+  />
+
+  <meta property="og:title" content="Preorder Homemade Cookies from Goodness Bakery" />
+  <meta
+    property="og:description"
+    content="Reserve your small-batch cookies and rolls today. Pickup available in Moore, Oklahoma."
+  />
+  <meta property="og:url" content="https://thegoodnessbakery.com/preorder" />
+  <meta property="og:type" content="article" />
+</Helmet>
+
     <section className="max-w-xl mx-auto px-4 py-16">
       <h1 className="text-2xl font-semibold text-goodness-chocolate mb-4">
         Preorder Your Goodness Bakery Box
@@ -302,6 +324,7 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdkbadrl";
 </section>
 
     </section>
+    </>
     
   );
 }

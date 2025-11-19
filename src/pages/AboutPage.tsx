@@ -1,5 +1,27 @@
+import { Helmet } from "react-helmet";
+
 export default function AboutPage() {
-  return (
+  return (<>
+  <Helmet>
+  <title>About Us | Goodness Bakery – Faith-Centered Home Bakery in Moore, OK</title>
+  <meta
+    name="description"
+    content="Learn about Goodness Bakery, a faith-centered home bakery in Moore, Oklahoma. Small-batch, handcrafted cookies and rolls inspired by warmth and everyday blessings."
+  />
+  <meta
+    name="keywords"
+    content="about bakery Moore OK, home bakery Oklahoma, Christian bakery Moore, small batch bakery OK"
+  />
+
+  <meta property="og:title" content="About Goodness Bakery – Moore Oklahoma Home Bakery" />
+  <meta
+    property="og:description"
+    content="A faith-filled home bakery in Moore, Oklahoma crafting cozy, homemade cookies and buttery rolls with purpose and prayer."
+  />
+  <meta property="og:url" content="https://thegoodnessbakery.com/about" />
+  <meta property="og:type" content="article" />
+</Helmet>
+
     <section className="max-w-5xl mx-auto px-6 py-20">
       <h1 className="text-3xl md:text-4xl font-bold text-goodness-chocolate text-center mb-8">
         About Goodness Bakery
@@ -30,5 +52,6 @@ export default function AboutPage() {
         “Taste and see that the Lord is good.” — Psalm 34:8
       </p>
     </section>
+    </>
   );
 }

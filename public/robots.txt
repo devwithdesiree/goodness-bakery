@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Disallow unnecessary files and directories
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /assets/
+
+# Sitemap location
+Sitemap: https://thegoodnessbakery.com/sitemap.xml

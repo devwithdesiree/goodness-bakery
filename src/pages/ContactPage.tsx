@@ -1,5 +1,28 @@
+import { Helmet } from "react-helmet";
+
 export default function ContactPage() {
   return (
+    <>
+    <Helmet>
+  <title>Contact Us | Goodness Bakery – Moore, Oklahoma Home Bakery</title>
+  <meta
+    name="description"
+    content="Contact Goodness Bakery in Moore, Oklahoma. Ask questions, request custom orders, or get help with your preorder."
+  />
+  <meta
+    name="keywords"
+    content="contact bakery Moore OK, contact home bakery Oklahoma, cookie shop Moore contact"
+  />
+
+  <meta property="og:title" content="Contact Goodness Bakery – Moore Oklahoma" />
+  <meta
+    property="og:description"
+    content="Have questions? Contact Goodness Bakery for preorders, custom requests, or pickup information."
+  />
+  <meta property="og:url" content="https://thegoodnessbakery.com/contact" />
+  <meta property="og:type" content="article" />
+</Helmet>
+
     <div className="max-w-4xl mx-auto px-4 py-16">
       <h1 className="text-3xl font-semibold text-goodness-chocolate mb-6">
         Contact Us
@@ -66,5 +89,6 @@ export default function ContactPage() {
         </form>
       </div>
     </div>
+    </>
   );
 }
