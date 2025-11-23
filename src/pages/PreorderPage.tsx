@@ -191,11 +191,11 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
             className="w-full border border-goodness-sugar bg-goodness-cream/50 px-3 py-2 rounded-lg text-sm"
           >
             <option value="">Choose a flavor</option>
-            <option value="Sugar Cookies">Sugar Cookies – 6 Pack ($15.99)</option>
+            <option value="Sugar Cookies">Sugar Cookies – 6 Pack ($17.99)</option>
             <option value="Chocolate Chip Cookies">
               Chocolate Chip Cookies – 6 Pack ($17.99)
             </option>
-            <option value="Butter Rolls">Butter Rolls – 4 Pack ($11.99)</option>
+            <option value="Butter Rolls">Butter Rolls – 4 Pack ($15.99)</option>
           </select>
         </div>
 
