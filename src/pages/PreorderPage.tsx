@@ -3,10 +3,13 @@ import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const paymentLinks: Record<string, string> = {
-  "Sugar Cookies": "https://buy.stripe.com/eVq8wOeBc0Q990T3AM3Nm02",
-  "Chocolate Chip Cookies": "https://buy.stripe.com/aFa9AS0KmfL33Gz6MY3Nm01",
-  "Butter Rolls": "https://buy.stripe.com/9B64gyct49mFfph1sE3Nm03",
+  "Classic Sugar Cookies": "https://buy.stripe.com/7sYeVc78K2Yhfphc7i3Nm08",
+  "Coconut Sugar Cookies": "https://buy.stripe.com/9B6fZgdx856p7WPdbm3Nm07",
+  "Chocolate Chip Cookies": "https://buy.stripe.com/00w5kCgJkeGZ90T9Za3Nm06",
+  "Caramel Biscoff Cookies": "https://buy.stripe.com/00w8wO78K7ex3Gzgny3Nm05",
+  "Butter Rolls": "https://buy.stripe.com/28EfZgct4fL32Cv3AM3Nm04",
 };
+
 
 export default function PreorderPage() {
   const [form, setForm] = useState({
@@ -121,9 +124,73 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
 </Helmet>
 
     <section className="max-w-xl mx-auto px-4 py-16">
+
+      {/* HOW PREORDERING WORKS SECTION */}
+<section className="mb-12 bg-goodness-cream/70 border border-goodness-sugar rounded-3xl p-6 md:p-10 shadow-sm">
+
+  <h2 className="text-xl md:text-2xl font-bold text-goodness-chocolate mb-4 text-center">
+    How Preordering Works
+  </h2>
+
+  <p className="text-goodness-chocolate/70 text-sm md:text-base text-center max-w-lg mx-auto mb-10">
+    We bake in small batches with love, intention, and real ingredients.  
+    Here’s how to reserve your box of goodness for this week:
+  </p>
+
+  <div className="grid md:grid-cols-4 gap-8">
+
+    {/* STEP 1 */}
+    <div className="text-center">
+      <div className="h-12 w-12 mx-auto mb-3 rounded-full bg-goodness-caramel/90 text-white flex items-center justify-center font-bold">
+        1
+      </div>
+      <h3 className="font-semibold text-goodness-chocolate mb-1">Pick Your Treat</h3>
+      <p className="text-xs text-goodness-chocolate/70">
+        Choose your favorite cookies or buttery rolls.
+      </p>
+    </div>
+
+    {/* STEP 2 */}
+    <div className="text-center">
+      <div className="h-12 w-12 mx-auto mb-3 rounded-full bg-goodness-caramel/90 text-white flex items-center justify-center font-bold">
+        2
+      </div>
+      <h3 className="font-semibold text-goodness-chocolate mb-1">Submit Your Preorder</h3>
+      <p className="text-xs text-goodness-chocolate/70">
+        Preorders are open Monday–Thursday each week.
+      </p>
+    </div>
+
+    {/* STEP 3 */}
+    <div className="text-center">
+      <div className="h-12 w-12 mx-auto mb-3 rounded-full bg-goodness-caramel/90 text-white flex items-center justify-center font-bold">
+        3
+      </div>
+      <h3 className="font-semibold text-goodness-chocolate mb-1">Secure Your Payment</h3>
+      <p className="text-xs text-goodness-chocolate/70">
+        After the form, complete your payment through Stripe.
+      </p>
+    </div>
+
+    {/* STEP 4 */}
+    <div className="text-center">
+      <div className="h-12 w-12 mx-auto mb-3 rounded-full bg-goodness-caramel/90 text-white flex items-center justify-center font-bold">
+        4
+      </div>
+      <h3 className="font-semibold text-goodness-chocolate mb-1">Pick Up Fresh</h3>
+      <p className="text-xs text-goodness-chocolate/70">
+        Pickups are available Friday & Saturday in Moore, OK.
+      </p>
+    </div>
+
+  </div>
+</section>
+
       <h1 className="text-2xl font-semibold text-goodness-chocolate mb-4">
         Preorder Your Goodness Bakery Box
       </h1>
+
+      
 
       <p className="text-sm text-goodness-chocolate/70 mb-6">
         Fill out this quick form. After submitting, you&apos;ll be redirected to
@@ -191,11 +258,11 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
             className="w-full border border-goodness-sugar bg-goodness-cream/50 px-3 py-2 rounded-lg text-sm"
           >
             <option value="">Choose a flavor</option>
-            <option value="Sugar Cookies">Sugar Cookies – 6 Pack ($15.99)</option>
-            <option value="Chocolate Chip Cookies">
-              Chocolate Chip Cookies – 6 Pack ($17.99)
-            </option>
-            <option value="Butter Rolls">Butter Rolls – 4 Pack ($11.99)</option>
+            <option value="Classic Sugar Cookies">Sugar Cookies – 6 Pack ($18)</option>
+            <option value="Coconut Sugar Cookies">Sugar Cookies – 6 Pack ($18)</option>
+            <option value="Chocolate Chip Cookies">Chocolate Chip Cookies – 6 Pack ($18)</option>
+            <option value="Caramel Biscoff Cookies">Caramel Biscoff Cookies – 6 Pack ($21)</option>
+            <option value="Butter Rolls">Butter Rolls – 12 Pack ($25)</option>
           </select>
         </div>
 
@@ -221,10 +288,10 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
         {/* PICKUP/DELIVERY */}
         <div className="space-y-1">
           <label className="text-xs text-goodness-chocolate font-medium">
-            Pickup or Delivery?
+            Select your pickup slot.
           </label>
           <div className="flex gap-3 mt-1">
-            <button
+            {/* <button
               type="button"
               onClick={() => handleMethodChange("pickup")}
               className={`px-3 py-1.5 rounded-full text-xs border transition ${
@@ -234,9 +301,9 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
               }`}
             >
               Pickup
-            </button>
+            </button> */}
 
-            <button
+            {/* <button
               type="button"
               onClick={() => handleMethodChange("delivery")}
               className={`px-3 py-1.5 rounded-full text-xs border transition ${
@@ -246,7 +313,7 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
               }`}
             >
               Delivery (if available)
-            </button>
+            </button> */}
           </div>
         </div>
 
@@ -300,17 +367,17 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
 
   <div className="space-y-3 text-goodness-chocolate/80 text-sm">
     <p>
-      📧 <span className="font-medium text-goodness-chocolate">Email:</span>  
+      📧 <span className="font-medium text-goodness-chocolate">Email: </span>  
       tastethegoodnessbakery@gmail.com
     </p>
 
     <p>
-      📱 <span className="font-medium text-goodness-chocolate">Phone:</span>  
-      (555) 123-4567
+      📱 <span className="font-medium text-goodness-chocolate">Phone: </span>  
+      (405) 967-9160
     </p>
 
     <p>
-      📍 <span className="font-medium text-goodness-chocolate">Location:</span>  
+      📍 <span className="font-medium text-goodness-chocolate">Location: </span>  
       Moore, OK (pickup available)
     </p>
   </div>
