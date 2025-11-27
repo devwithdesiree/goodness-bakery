@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
+import rollsImg from "../assets/rolls.jpg";
+import sugarImg from "../assets/sugar.jpg";
+import coconutImg from "../assets/coco.jpg";
+import biscoffImg from "../assets/biscoff.jpg";
+import chocolateChipImg from "../assets/choco.jpg";
+import MenuItem from "../components/MenuItem";
+
 export default function MenuPage() {
   return (<>
   <Helmet>
@@ -17,7 +24,7 @@ export default function MenuPage() {
     "offers": {
       "@type": "Offer",
       "priceCurrency": "USD",
-      "price": "15.99",
+      "price": "18",
       "availability": "https://schema.org/InStock",
       "url": "https://thegoodnessbakery.com/preorder"
     }
@@ -32,7 +39,7 @@ export default function MenuPage() {
     "offers": {
       "@type": "Offer",
       "priceCurrency": "USD",
-      "price": "17.99",
+      "price": "18",
       "availability": "https://schema.org/InStock",
       "url": "https://thegoodnessbakery.com/preorder"
     }
@@ -40,14 +47,14 @@ export default function MenuPage() {
   {
     "@context": "https://schema.org/",
     "@type": "Product",
-    "name": "Butter Rolls – 4 Pack",
+    "name": "Butter Rolls – 12 Pack",
     "image": "https://thegoodnessbakery.com/hero-cookie.jpg",
     "description": "Fluffy, extra-milky homemade butter rolls brushed with warm sweet cream.",
     "brand": "Goodness Bakery",
     "offers": {
       "@type": "Offer",
       "priceCurrency": "USD",
-      "price": "11.99",
+      "price": "25",
       "availability": "https://schema.org/InStock",
       "url": "https://thegoodnessbakery.com/preorder"
     }
@@ -75,89 +82,65 @@ export default function MenuPage() {
   <meta property="og:type" content="article" />
 </Helmet>
 
-    <div className="max-w-5xl mx-auto px-4 py-16">
-      <h1 className="text-3xl font-semibold text-goodness-chocolate mb-6">
-        Our Menu
-      </h1>
+    <div className="max-w-6xl mx-auto px-4 py-16">
+  <h1 className="text-3xl md:text-4xl font-semibold text-goodness-chocolate mb-6">
+    Our Menu
+  </h1>
 
-      <p className="text-goodness-chocolate/80 mb-10 max-w-2xl">
-        Baked fresh in small batches with warm spices, real butter, and plenty of
-        cozy goodness. Preorder your treats below.
-      </p>
+  <p className="text-goodness-chocolate/80 max-w-xl text-sm md:text-base mb-10">
+    Baked fresh in small batches with real butter, cozy flavors, and prayer.
+    Every box is made to order for Friday or Saturday pickup.
+  </p>
 
-      <div className="grid md:grid-cols-2 gap-8">
+  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  <Link to="/preorder" >
+      <MenuItem
+      title="Butter Rolls – 12 Pack"
+      price="$25"
+      description="Fluffy, extra-milky rolls brushed with warm sweet cream. Perfect for breakfast or dessert."
+      image={rollsImg}
+      />
+    </Link>
+    <Link to="/preorder" >
+    <MenuItem
+      title="Classic Sugar Cookies – 6 Pack"
+      price="$18"
+      description="Soft, thick, melt-in-your-mouth vanilla sugar cookies with cozy warm notes."
+      image={sugarImg}
+    />
+    </Link>
+    
+  <Link to="/preorder" >
 
-        {/* Sugar Cookies */}
-        <div className="p-6 bg-white border border-goodness-sugar rounded-2xl shadow-sm hover:shadow-md transition flex flex-col justify-between">
-          <div>
-            <div className="flex justify-between items-start">
-              <h3 className="text-lg font-semibold text-goodness-chocolate">
-                Sugar Cookies – 6 Pack
-              </h3>
-              <span className="text-goodness-caramel font-semibold">$15.99</span>
-            </div>
-            <p className="text-sm text-goodness-chocolate/70 mt-2">
-              Soft, thick, melt-in-your-mouth sugar cookies with buttery vanilla and a hint of nutmeg.
-            </p>
-          </div>
+    <MenuItem
+      title="Coconut Sugar Cookies – 6 Pack"
+      price="$18.00"
+      description="Golden edges, chewy center, and shredded coconut throughout. Sweet, warm, tropical comfort."
+      image={coconutImg}
+    />
+    </Link>
 
-          {/* Preorder Button */}
-          <Link
-            to="/preorder"
-            className="mt-6 inline-block text-center w-full px-4 py-2 rounded-lg bg-goodness-caramel text-white font-semibold shadow hover:shadow-md transition"
-          >
-            Preorder
-          </Link>
-        </div>
+    <Link to="/preorder" >
+    <MenuItem
+      title="Caramel Biscoff Cookies – 6 Pack"
+      price="$21.00"
+      description="Soft Biscoff cookie loaded with cinnamon spice, caramel swirl, and Lotus crumble."
+      image={biscoffImg}
+    />
+    </Link>
 
+    <Link to="/preorder" >
+    <MenuItem
+      title="Thick Chocolate Chip – 6 Pack"
+      price="$18.00"
+      description="Thick, gooey center with melty chocolate chunks. Crisp edges, soft middle — our signature favorite."
+      image={chocolateChipImg}
+    />
+    </Link>
 
-        {/* Chocolate Chip Cookies */}
-        <div className="p-6 bg-white border border-goodness-sugar rounded-2xl shadow-sm hover:shadow-md transition flex flex-col justify-between">
-          <div>
-            <div className="flex justify-between items-start">
-              <h3 className="text-lg font-semibold text-goodness-chocolate">
-                Chocolate Chip Cookies – 6 Pack
-              </h3>
-              <span className="text-goodness-caramel font-semibold">$17.99</span>
-            </div>
-            <p className="text-sm text-goodness-chocolate/70 mt-2">
-              Thick, chewy cookies loaded with melty chocolate chips. Crisp edges, gooey centers.
-            </p>
-          </div>
+  </div>
+</div>
 
-          <Link
-            to="/preorder"
-            className="mt-6 inline-block text-center w-full px-4 py-2 rounded-lg bg-goodness-caramel text-white font-semibold shadow hover:shadow-md transition"
-          >
-            Preorder
-          </Link>
-        </div>
-
-
-        {/* Butter Rolls */}
-        <div className="p-6 bg-white border border-goodness-sugar rounded-2xl shadow-sm hover:shadow-md transition flex flex-col justify-between">
-          <div>
-            <div className="flex justify-between items-start">
-              <h3 className="text-lg font-semibold text-goodness-chocolate">
-                Butter Rolls – 4 Pack
-              </h3>
-              <span className="text-goodness-caramel font-semibold">$11.99</span>
-            </div>
-            <p className="text-sm text-goodness-chocolate/70 mt-2">
-              Fluffy, extra-milky butter rolls baked golden and brushed with sweet warm cream.
-            </p>
-          </div>
-
-          <Link
-            to="/preorder"
-            className="mt-6 inline-block text-center w-full px-4 py-2 rounded-lg bg-goodness-caramel text-white font-semibold shadow hover:shadow-md transition"
-          >
-            Preorder
-          </Link>
-        </div>
-
-      </div>
-    </div>
     </>
   );
 }

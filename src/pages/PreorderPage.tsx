@@ -41,9 +41,9 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
     }));
   }
 
-  function handleMethodChange(value: string) {
-    setForm((prev) => ({ ...prev, method: value }));
-  }
+  // function handleMethodChange(value: string) {
+  //   setForm((prev) => ({ ...prev, method: value }));
+  // }
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
