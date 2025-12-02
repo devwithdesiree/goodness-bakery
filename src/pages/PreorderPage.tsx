@@ -121,6 +121,7 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
   />
   <meta property="og:url" content="https://thegoodnessbakery.com/preorder" />
   <meta property="og:type" content="article" />
+   <link rel="canonical" href="https://thegoodnessbakery.com/preorder" />
 </Helmet>
 
     <section className="max-w-xl mx-auto px-4 py-16">
