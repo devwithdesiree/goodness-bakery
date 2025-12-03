@@ -21,6 +21,7 @@ export default function PreorderPage() {
     method: "pickup",
     date: "",
     notes: "",
+    smsConsent: false, 
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -244,6 +245,27 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
             onChange={handleChange}
             className="w-full border border-goodness-sugar bg-goodness-cream/50 px-3 py-2 rounded-lg text-sm focus:ring-2 focus:ring-goodness-caramel"
           />
+        </div>
+
+        {/* SMS CONSENT */}
+        <div className="flex items-start gap-2 text-[11px] mt-1">
+          <input
+            id="smsConsent"
+            type="checkbox"
+            checked={form.smsConsent}
+            onChange={(e) =>
+              setForm((prev) => ({ ...prev, smsConsent: e.target.checked }))
+            }
+            className="mt-0.5 h-3 w-3 border border-goodness-sugar rounded"
+          />
+          <label
+            htmlFor="smsConsent"
+            className="text-goodness-chocolate/70"
+          >
+            I agree to receive text messages about my order from Goodness Bakery at the
+            phone number provided. Message &amp; data rates may apply. Reply STOP to
+            unsubscribe.
+          </label>
         </div>
 
         {/* FLAVOR */}
