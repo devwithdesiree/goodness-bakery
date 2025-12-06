@@ -45,6 +45,8 @@ export default function Footer() {
         <p className="mt-2">
           © {new Date().getFullYear()} Goodness Bakery. All rights reserved.
         </p>
+          <a href="/privacy" className="mx-3 underline">Privacy Policy</a>
+          <a href="/terms" className="mx-3 underline">Terms of Service</a>
       </div>
     </footer>
   );

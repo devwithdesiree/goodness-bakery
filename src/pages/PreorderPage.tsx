@@ -1,13 +1,15 @@
 import { type FormEvent, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import CookieSpinner from "../components/CookieSpinner";
 
-const paymentLinks: Record<string, string> = {
-  "Classic Sugar Cookies": "https://buy.stripe.com/7sYeVc78K2Yhfphc7i3Nm08",
-  "Coconut Sugar Cookies": "https://buy.stripe.com/9B6fZgdx856p7WPdbm3Nm07",
-  "Chocolate Chip Cookies": "https://buy.stripe.com/00w5kCgJkeGZ90T9Za3Nm06",
-  "Caramel Biscoff Cookies": "https://buy.stripe.com/00w8wO78K7ex3Gzgny3Nm05",
-  "Butter Rolls": "https://buy.stripe.com/28EfZgct4fL32Cv3AM3Nm04",
+
+const prices: Record<string, number> = {
+  "Classic Sugar Cookies": 1800,  // $18
+  "Coconut Sugar Cookies": 1800,  // $18
+  "Chocolate Chip Cookies": 1800, // $18
+  "Caramel Biscoff Cookies": 2100, // $21
+  "Butter Rolls": 2500 // $25
 };
 
 
@@ -26,6 +28,8 @@ export default function PreorderPage() {
 
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
 
   // 🔸 REPLACE this with your real Formspree endpoint
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
@@ -41,10 +45,39 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
       [name]: name === "quantity" ? Number(value) : value,
     }));
   }
+async function handleCheckout() {
+  try{
+    setLoading(true);
+    const priceInCents = prices[form.flavor];
 
-  // function handleMethodChange(value: string) {
-  //   setForm((prev) => ({ ...prev, method: value }));
-  // }
+  if (!priceInCents) {
+    alert("Please select a valid flavor.");
+    return;
+  }
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/api/checkout/create-session`, {
+
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      productName: form.flavor,
+      amount: priceInCents,          // uses real price
+      quantity: form.quantity        // multiplies in Stripe
+    })
+  });
+
+  const data = await response.json();
+
+  window.location.href = data.url; // take user to Stripe Checkout
+  }
+  catch (err) {
+    console.error(err);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+}
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -60,47 +93,14 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
       if (!response.ok) throw new Error("Network response was not ok");
 
       setSubmitted(true);
+      handleCheckout();
+
     } catch (err) {
       console.error(err);
       setError("Something went wrong. Please try again.");
     }
   }
 
-  // ✅ After submit: show dynamic payment link based on flavor
-  if (submitted) {
-    const paymentUrl = paymentLinks[form.flavor];
-
-    return (
-      <section className="max-w-xl mx-auto px-4 py-16">
-        <div className="bg-white border border-goodness-sugar rounded-2xl p-6 shadow-sm">
-          <h2 className="text-xl font-semibold text-goodness-chocolate mb-3">
-            Thank you! Your preorder has been received.
-          </h2>
-
-          <p className="text-sm text-goodness-chocolate/80 mb-4">
-            Please complete your payment below. Once payment is confirmed, I will
-            follow up with pick-up/delivery details.
-          </p>
-
-          {paymentUrl ? (
-            <a
-              href={paymentUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-block px-6 py-3 rounded-full bg-goodness-caramel text-white text-sm font-semibold shadow-md hover:shadow-lg transition"
-            >
-              Pay for {form.flavor}
-            </a>
-          ) : (
-            <p className="text-sm text-red-600">
-              I couldn&apos;t find a payment link for this flavor. Please contact
-              me directly to complete your order.
-            </p>
-          )}
-        </div>
-      </section>
-    );
-  }
 
   return (
     <>
@@ -248,25 +248,21 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
         </div>
 
         {/* SMS CONSENT */}
-        <div className="flex items-start gap-2 text-[11px] mt-1">
-          <input
-            id="smsConsent"
-            type="checkbox"
-            checked={form.smsConsent}
-            onChange={(e) =>
-              setForm((prev) => ({ ...prev, smsConsent: e.target.checked }))
-            }
-            className="mt-0.5 h-3 w-3 border border-goodness-sugar rounded"
-          />
-          <label
-            htmlFor="smsConsent"
-            className="text-goodness-chocolate/70"
-          >
-            I agree to receive text messages about my order from Goodness Bakery at the
-            phone number provided. Message &amp; data rates may apply. Reply STOP to
-            unsubscribe.
-          </label>
-        </div>
+        <label className="flex items-start gap-2 text-sm text-gray-700">
+  <input
+    type="checkbox"
+    required
+    name="smsConsent"
+    className="mt-1 h-4 w-4"
+  />
+  <span>
+    I agree to receive SMS messages from Goodness Bakery related to my order.
+    Message & data rates may apply. Reply STOP to opt out. View our 
+    <a href="/privacy" className="underline text-blue-800"> Privacy Policy</a> and 
+    <a href="/terms" className="underline text-blue-800"> Terms of Service</a>.
+  </span>
+</label>
+
 
         {/* FLAVOR */}
         <div className="space-y-1">
@@ -313,30 +309,7 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
           <label className="text-xs text-goodness-chocolate font-medium">
             Select your pickup slot.
           </label>
-          <div className="flex gap-3 mt-1">
-            {/* <button
-              type="button"
-              onClick={() => handleMethodChange("pickup")}
-              className={`px-3 py-1.5 rounded-full text-xs border transition ${
-                form.method === "pickup"
-                  ? "bg-goodness-caramel text-white border-goodness-caramel"
-                  : "border-goodness-sugar text-goodness-chocolate bg-goodness-cream/50"
-              }`}
-            >
-              Pickup
-            </button> */}
-
-            {/* <button
-              type="button"
-              onClick={() => handleMethodChange("delivery")}
-              className={`px-3 py-1.5 rounded-full text-xs border transition ${
-                form.method === "delivery"
-                  ? "bg-goodness-caramel text-white border-goodness-caramel"
-                  : "border-goodness-sugar text-goodness-chocolate bg-goodness-cream/50"
-              }`}
-            >
-              Delivery (if available)
-            </button> */}
+          <div className="flex gap-3 mt-1">          
           </div>
         </div>
 
@@ -368,12 +341,19 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqanbobk";
           />
         </div>
 
-        <button
-          type="submit"
-          className="w-full mt-4 px-5 py-3 rounded-full bg-goodness-caramel text-white text-sm font-semibold shadow-md hover:shadow-lg transition"
-        >
-          Submit Preorder
-        </button>
+<button
+  type="submit"
+  disabled={loading}
+  className={`w-full mt-4 px-5 py-3 rounded-lg text-white text-sm font-semibold shadow-sm 
+    ${loading ? "bg-goodness-caramel/50 cursor-not-allowed" : "bg-goodness-caramel hover:shadow-md"}`}
+>
+  {loading ? (
+    <CookieSpinner />
+  ) : (
+    "Submit Preorder"
+  )}
+</button>
+
       </form>
 
 

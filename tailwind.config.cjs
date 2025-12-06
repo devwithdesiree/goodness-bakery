@@ -14,6 +14,9 @@ module.exports = {
           sugar: "#F4D9B5",
         },
       },
+      animation: {
+    "spin-slow": "spin 2s linear infinite",
+  },
     },
   },
   plugins: [],
