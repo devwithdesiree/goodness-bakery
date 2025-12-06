@@ -26,7 +26,7 @@ export default function PreorderPage() {
     smsConsent: false, 
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const [, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 

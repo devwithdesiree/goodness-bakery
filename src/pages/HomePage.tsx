@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import heroImage from "../assets/hero-cookie.jpg";
+import heroImage from "../../public/hero-cookie.jpg";
 import { Helmet } from "react-helmet";
 import rollsImg from "../assets/rolls.jpg";
 import sugarImg from "../assets/sugar.jpg";
