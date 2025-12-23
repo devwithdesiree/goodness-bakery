@@ -1,13 +1,6 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
-import rollsImg from "../assets/rolls.jpg";
-import sugarImg from "../assets/sugar.jpg";
-import coconutImg from "../assets/coco.jpg";
-import biscoffImg from "../assets/biscoff.jpg";
-import chocolateChipImg from "../assets/choco.jpg";
-import MenuItem from "../components/MenuItem";
-
 export default function MenuPage() {
   return (<>
   <Helmet>
@@ -82,64 +75,109 @@ export default function MenuPage() {
   <meta property="og:type" content="article" />
 </Helmet>
 
-    <div className="max-w-6xl mx-auto px-4 py-16">
-  <h1 className="text-3xl md:text-4xl font-semibold text-goodness-chocolate mb-6">
-    Our Menu
-  </h1>
+    <main className="max-w-4xl mx-auto px-6 py-20">
+        {/* PAGE TITLE */}
+        <h1 className="text-3xl md:text-4xl font-semibold text-goodness-chocolate mb-4">
+          Our Menu
+        </h1>
 
-  <p className="text-goodness-chocolate/80 max-w-xl text-sm md:text-base mb-10">
-    Baked fresh in small batches with real butter, cozy flavors, and prayer.
-    Every box is made to order for Friday or Saturday pickup.
-  </p>
+        <p className="text-goodness-chocolate/75 text-sm md:text-base max-w-xl mb-12">
+          Baked fresh in small batches with real butter, cozy flavors, and prayers.
+          All items are sold by the box and made to order for Friday or Saturday pickup.
+        </p>
 
-  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-  <Link to="/preorder" >
-      <MenuItem
-      title="Butter Rolls – 12 Pack"
-      price="$25"
-      description="Fluffy, extra-milky rolls brushed with warm sweet cream. Perfect for breakfast or dessert."
-      image={rollsImg}
-      />
-    </Link>
-    <Link to="/preorder" >
-    <MenuItem
-      title="Classic Sugar Cookies – 6 Pack"
-      price="$18"
-      description="Soft, thick, melt-in-your-mouth vanilla sugar cookies with cozy warm notes."
-      image={sugarImg}
-    />
-    </Link>
-    
-  <Link to="/preorder" >
+        {/* COOKIES */}
+        <section className="mb-14">
+          <h2 className="text-xl font-semibold text-goodness-chocolate mb-6">
+            Cookies
+          </h2>
 
-    <MenuItem
-      title="Coconut Sugar Cookies – 6 Pack"
-      price="$18.00"
-      description="Golden edges, chewy center, and shredded coconut throughout. Sweet, warm, tropical comfort."
-      image={coconutImg}
-    />
-    </Link>
+          <ul className="space-y-6">
+            <li className="flex justify-between gap-6">
+              <div>
+                <p className="font-medium text-goodness-chocolate">
+                  Classic Sugar Cookies <span className="text-sm font-normal">(6-pack)</span>
+                </p>
+                <p className="text-sm text-goodness-chocolate/70">
+                  Soft, thick, melt-in-your-mouth vanilla sugar cookies with cozy warm notes.
+                </p>
+              </div>
+              <span className="font-medium text-goodness-chocolate">$18</span>
+            </li>
 
-    <Link to="/preorder" >
-    <MenuItem
-      title="Caramel Biscoff Cookies – 6 Pack"
-      price="$21.00"
-      description="Soft Biscoff cookie loaded with cinnamon spice, caramel swirl, and Lotus crumble."
-      image={biscoffImg}
-    />
-    </Link>
+            <li className="flex justify-between gap-6">
+              <div>
+                <p className="font-medium text-goodness-chocolate">
+                  Thick Chocolate Chip <span className="text-sm font-normal">(6-pack)</span>
+                </p>
+                <p className="text-sm text-goodness-chocolate/70">
+                  Crisp edges, gooey center, and melty chocolate chunks — our signature favorite.
+                </p>
+              </div>
+              <span className="font-medium text-goodness-chocolate">$18</span>
+            </li>
 
-    <Link to="/preorder" >
-    <MenuItem
-      title="Thick Chocolate Chip – 6 Pack"
-      price="$18.00"
-      description="Thick, gooey center with melty chocolate chunks. Crisp edges, soft middle — our signature favorite."
-      image={chocolateChipImg}
-    />
-    </Link>
+            <li className="flex justify-between gap-6">
+              <div>
+                <p className="font-medium text-goodness-chocolate">
+                  Coconut Sugar Cookies <span className="text-sm font-normal">(6-pack)</span>
+                </p>
+                <p className="text-sm text-goodness-chocolate/70">
+                  Golden edges, chewy center, and shredded coconut throughout.
+                </p>
+              </div>
+              <span className="font-medium text-goodness-chocolate">$18</span>
+            </li>
 
-  </div>
-</div>
+            <li className="flex justify-between gap-6">
+              <div>
+                <p className="font-medium text-goodness-chocolate">
+                  Caramel Biscoff Cookies <span className="text-sm font-normal">(6-pack)</span>
+                </p>
+                <p className="text-sm text-goodness-chocolate/70">
+                  Spiced Biscoff cookie with caramel swirls and Lotus crumble.
+                </p>
+              </div>
+              <span className="font-medium text-goodness-chocolate">$21</span>
+            </li>
+          </ul>
+        </section>
+
+        {/* ROLLS */}
+        <section className="mb-16">
+          <h2 className="text-xl font-semibold text-goodness-chocolate mb-6">
+            Rolls
+          </h2>
+
+          <ul>
+            <li className="flex justify-between gap-6">
+              <div>
+                <p className="font-medium text-goodness-chocolate">
+                  Butter Rolls <span className="text-sm font-normal">(12-pack)</span>
+                </p>
+                <p className="text-sm text-goodness-chocolate/70">
+                  Fluffy, extra-milky rolls brushed with warm sweet cream.
+                </p>
+              </div>
+              <span className="font-medium text-goodness-chocolate">$25</span>
+            </li>
+          </ul>
+        </section>
+
+        {/* ORDER NOTE */}
+        <div className="bg-goodness-cream border border-goodness-sugar rounded-xl p-6 text-sm text-goodness-chocolate/80 mb-12">
+          Pre-orders open Sunday and close Thursday at 11:59 PM.
+          Quantities are limited each week to ensure freshness.
+        </div>
+
+        {/* CTA */}
+        <Link
+          to="/preorder"
+          className="inline-block px-8 py-3 rounded-full bg-goodness-caramel text-white font-semibold shadow-md hover:shadow-lg transition"
+        >
+          Pre-Order a Box
+        </Link>
+      </main>
 
     </>
   );

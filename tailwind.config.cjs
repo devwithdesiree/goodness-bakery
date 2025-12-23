@@ -11,6 +11,7 @@ module.exports = {
           cream: "#FFF7E9",
           caramel: "#D29B6E",
           chocolate: "#4B2E2B",
+          dark:"#080504",
           sugar: "#F4D9B5",
         },
       },

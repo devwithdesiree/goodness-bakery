@@ -5,13 +5,14 @@ import "./index.css";
 import HomePage from "./pages/HomePage";
 import PreorderPage from "./pages/PreorderPage";
 import Layout from "./components/Layout";
-import AboutPage from "./pages/AboutPage";
+
 import MenuPage from "./pages/MenuPage";
-import ContactPage from "./pages/ContactPage";
+
 import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
 import SuccessPage from "./pages/SuccessPage";
 import CancelPage from "./pages/CancelPage";
+import AboutPage from "./pages/AboutPage";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -19,13 +20,13 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<MenuPage />} />
           <Route path="/preorder" element={<PreorderPage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/menu" element={<MenuPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+
+          {/* Optional but fine to keep */}
           <Route path="/success" element={<SuccessPage />} />
           <Route path="/cancel" element={<CancelPage />} />
-
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
         </Routes>
