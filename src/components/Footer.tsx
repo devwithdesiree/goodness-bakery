@@ -1,6 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="bg-goodness-caramel text-goodness-cream mt-32 pt-16 pb-10">
+    <footer className="bg-goodness-dark text-goodness-cream pt-16 pb-10">
+
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
 
         {/* BRAND */}
@@ -21,8 +22,8 @@ export default function Footer() {
             <li><a href="/" className="hover:text-white transition">Home</a></li>
             <li><a href="/about" className="hover:text-white transition">About</a></li>
             <li><a href="/preorder" className="hover:text-white transition">Preorder</a></li>
-            <li><a href="#menu" className="hover:text-white transition">Menu</a></li>
-            <li><a href="#contact" className="hover:text-white transition">Contact</a></li>
+            <li><a href="/menu" className="hover:text-white transition">Menu</a></li>
+            <li><a href="/preorder" className="hover:text-white transition">Contact</a></li>
           </ul>
         </div>
 
