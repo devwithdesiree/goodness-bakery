@@ -120,6 +120,18 @@ export default function MenuPage() {
             <li className="flex justify-between gap-6">
               <div>
                 <p className="font-medium text-goodness-chocolate">
+                  Thick Chocolate Chip <span className="text-sm font-normal">(12-pack)</span>
+                </p>
+                <p className="text-sm text-goodness-chocolate/70">
+                  Crisp edges, gooey center, and melty chocolate chunks — our signature favorite.
+                </p>
+              </div>
+              <span className="font-medium text-goodness-chocolate">$30</span>
+            </li>
+
+            <li className="flex justify-between gap-6">
+              <div>
+                <p className="font-medium text-goodness-chocolate">
                   Coconut Sugar Cookies <span className="text-sm font-normal">(6-pack)</span>
                 </p>
                 <p className="text-sm text-goodness-chocolate/70">

@@ -9,6 +9,7 @@ const prices: Record<string, number> = {
   "Classic Sugar Cookies": 1800,
   "Coconut Sugar Cookies": 1800,
   "Chocolate Chip Cookies": 1800,
+  "Chocolate Chip Cookies - 12 Pack": 3000,
   "Caramel Biscoff Cookies": 2100,
   "Butter Rolls": 2500,
 };
@@ -208,6 +209,7 @@ export default function PreorderPage() {
               <option value="Classic Sugar Cookies">Sugar Cookies – 6 Pack ($18)</option>
               <option value="Coconut Sugar Cookies">Coconut Sugar Cookies – 6 Pack ($18)</option>
               <option value="Chocolate Chip Cookies">Chocolate Chip Cookies – 6 Pack ($18)</option>
+              <option value="Chocolate Chip Cookies - 12 Pack">Chocolate Chip Cookies – 12 Pack ($30)</option>
               <option value="Caramel Biscoff Cookies">Caramel Biscoff Cookies – 6 Pack ($21)</option>
               <option value="Butter Rolls">Butter Rolls – 12 Pack ($25)</option>
             </select>
