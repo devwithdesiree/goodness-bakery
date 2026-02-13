@@ -3,57 +3,55 @@ import heroImage from "../../public/hero.jpg";
 
 export default function HomePage() {
   return (
-    <section
-      className="
-        relative w-full 
-        min-h-[75vh] md:min-h-[85vh]
-        flex items-center justify-center
-        overflow-hidden
-        bg-cover bg-center
-      "
-      style={{
-        backgroundImage: `url(${heroImage})`,
-      }}
-    >
-      {/* OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/65" />
+    <section className="bg-goodness-white">
 
-      {/* CONTENT */}
-      <div className="relative z-10 text-center px-5 max-w-sm sm:max-w-md md:max-w-3xl">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4 drop-shadow-[0_3px_10px_rgba(0,0,0,0.45)]">
-          Freshly baked cookies,
-          <br />
-          made to order every single week.
-        </h1>
+      <div className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center">
 
-        <p className="text-white/95 text-sm sm:text-base leading-relaxed mb-6">
-          Small-batch, faith-centered baking in Moore, Oklahoma.
-          <br />
-          Pre-orders open Sunday through Thursday.
-          <br />
-          Baked fresh on Friday.
-        </p>
+        {/* LEFT: TEXT */}
+        <div>
+          <h1 className="font-serifLogo text-4xl md:text-5xl lg:text-6xl leading-tight text-goodness-charcoal">
+            Elegant Small-Batch Cookies
+          </h1>
 
-        <div className="flex flex-col gap-3">
-          <Link
-            to="/menu"
-            className="w-full px-6 py-3 rounded-full bg-white text-goodness-chocolate font-semibold shadow-md"
-          >
-            View Menu
-          </Link>
+          <p className="mt-6 text-lg text-goodness-muted leading-relaxed">
+            Individually packaged gourmet cookies crafted for 
+            local pickup, refined events, and café partnerships.
+          </p>
 
-          <Link
-            to="/preorder"
-            className="w-full px-6 py-3 rounded-full bg-goodness-caramel text-white font-semibold shadow-md"
-          >
-            Pre-Order a Box
-          </Link>
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+
+            <Link
+              to="/pickup"
+              className="px-8 py-3 rounded-full bg-goodness-gold text-white font-medium hover:opacity-90 transition"
+            >
+              Order Pickup
+            </Link>
+
+            <Link
+              to="/events"
+              className="px-8 py-3 rounded-full border border-goodness-gold text-goodness-gold font-medium hover:bg-goodness-gold hover:text-white transition"
+            >
+              Plan an Event
+            </Link>
+
+          </div>
+
+          <p className="mt-8 text-sm text-goodness-muted">
+            Pickup in Moore, Oklahoma · 72-hour notice required
+          </p>
         </div>
 
-        <p className="mt-6 text-[11px] text-white/80">
-          Made with prayer, purpose, and a whole lot of goodness.
-        </p>
+        {/* RIGHT: IMAGE */}
+        <div className="relative">
+          <img
+            src={heroImage}
+            alt="Individually packaged gourmet cookies"
+            className="rounded-xl shadow-lg object-cover w-full h-[420px]"
+          />
+        </div>
+
       </div>
+
     </section>
   );
 }

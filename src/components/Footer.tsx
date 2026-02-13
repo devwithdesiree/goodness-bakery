@@ -1,54 +1,75 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
-    <footer className="bg-goodness-dark text-goodness-cream pt-16 pb-10">
+    <footer className="bg-goodness-beige pt-20 pb-12">
 
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
 
         {/* BRAND */}
         <div>
-          <h3 className="text-xl font-bold tracking-wide">
-            Goodness Bakery
+          <h3 className="font-serifLogo text-2xl tracking-wide text-goodness-charcoal">
+            GOODNESS
           </h3>
-          <p className="text-goodness-cream/90 text-sm mt-3 leading-relaxed">
-            Small-batch, faith-filled treats that warm homes, gather families, 
-            and make every moment a little sweeter.
+          <p className="text-sm text-goodness-muted mt-4 leading-relaxed max-w-xs">
+            Rooted in faith and crafted with excellence, 
+            we create elegant small-batch cookies designed 
+            to elevate gatherings and everyday moments.
           </p>
         </div>
 
-        {/* QUICK LINKS */}
+        {/* NAVIGATION */}
         <div className="text-sm">
-          <h4 className="font-semibold text-goodness-cream mb-3">Navigate</h4>
-          <ul className="space-y-2 text-goodness-cream/90">
-            <li><a href="/" className="hover:text-white transition">Home</a></li>
-            <li><a href="/about" className="hover:text-white transition">About</a></li>
-            <li><a href="/preorder" className="hover:text-white transition">Preorder</a></li>
-            <li><a href="/menu" className="hover:text-white transition">Menu</a></li>
-            <li><a href="/preorder" className="hover:text-white transition">Contact</a></li>
+          <h4 className="font-semibold text-goodness-charcoal mb-4">
+            Explore
+          </h4>
+          <ul className="space-y-3 text-goodness-muted">
+            <li><Link to="/" className="hover:text-goodness-gold transition">Home</Link></li>
+            <li><Link to="/pickup" className="hover:text-goodness-gold transition">Order Pickup</Link></li>
+            <li><Link to="/events" className="hover:text-goodness-gold transition">Events</Link></li>
+            <li><Link to="/wholesale" className="hover:text-goodness-gold transition">Wholesale</Link></li>
           </ul>
         </div>
 
         {/* CONTACT */}
         <div className="text-sm">
-          <h4 className="font-semibold text-goodness-cream mb-3">Get in Touch</h4>
-          <p className="text-goodness-cream/90">Moore, OK — Pickup Available</p>
-          <p className="text-goodness-cream/90 mt-1">tastethegoodnessbakery@gmail.com</p>
-
-          
+          <h4 className="font-semibold text-goodness-charcoal mb-4">
+            Contact
+          </h4>
+          <p className="text-goodness-muted">Moore, Oklahoma</p>
+          <p className="text-goodness-muted mt-2">
+            tastethegoodnessbakery@gmail.com
+          </p>
         </div>
+
       </div>
 
       {/* DIVIDER */}
-      <div className="max-w-5xl mx-auto mt-12 mb-6 h-[1px] bg-goodness-cream/30"></div>
+      <div className="max-w-6xl mx-auto mt-16 h-[1px] bg-goodness-charcoal/10"></div>
 
-      {/* COPYRIGHT + VERSE */}
-      <div className="text-center text-goodness-cream/80 text-xs px-4 leading-relaxed">
-        <p>“Taste and see that the Lord is good.” — Psalm 34:8</p>
-        <p className="mt-2">
-          © {new Date().getFullYear()} Goodness Bakery. All rights reserved.
+      {/* BOTTOM BAR */}
+      <div className="max-w-6xl mx-auto mt-8 px-6 flex flex-col md:flex-row justify-between items-center text-xs text-goodness-muted gap-4">
+
+        <p>
+          © {new Date().getFullYear()} Goodness Bakery Co. All rights reserved.
         </p>
-          <a href="/privacy" className="mx-3 underline">Privacy Policy</a>
-          <a href="/terms" className="mx-3 underline">Terms of Service</a>
+
+        <div className="flex gap-6">
+          <Link to="/privacy" className="hover:text-goodness-gold transition">
+            Privacy Policy
+          </Link>
+          <Link to="/terms" className="hover:text-goodness-gold transition">
+            Terms
+          </Link>
+        </div>
+
       </div>
+
+      {/* Subtle Faith Line */}
+      <div className="text-center mt-8 text-[11px] text-goodness-muted tracking-wide">
+        Psalm 34:8
+      </div>
+
     </footer>
   );
 }
