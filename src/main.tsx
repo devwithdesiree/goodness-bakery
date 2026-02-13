@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import HomePage from "./pages/HomePage";
-import PreorderPage from "./pages/PreorderPage";
 import Layout from "./components/Layout";
 
 import MenuPage from "./pages/MenuPage";
@@ -15,6 +14,7 @@ import CancelPage from "./pages/CancelPage";
 import AboutPage from "./pages/AboutPage";
 import WholesalePage from "./pages/WholesalePage";
 import EventsPage from "./pages/EventsPage";
+import PickupPage from "./features/pickup/PickupPage";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -23,7 +23,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/menu" element={<MenuPage />} />
-          <Route path="/pickup" element={<PreorderPage />} />
+          <Route path="/pickup" element={<PickupPage />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/wholesale" element={<WholesalePage />} />
           <Route path="/about" element={<AboutPage />} />

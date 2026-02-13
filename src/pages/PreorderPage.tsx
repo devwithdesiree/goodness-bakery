@@ -6,20 +6,22 @@ import CookieSpinner from "../components/CookieSpinner";
    PRICE MAP (Stripe uses this)
 ------------------------------------------- */
 const prices: Record<string, number> = {
-  "Classic Sugar Cookies": 1800,
-  "Coconut Sugar Cookies": 1800,
-  "Chocolate Chip Cookies": 1800,
-  "Chocolate Chip Cookies - 12 Pack": 3000,
-  "Caramel Biscoff Cookies": 2100,
-  "Butter Rolls": 2500,
+  "6 Pack": 2200,   // $22
+  "12 Pack": 4200,  // $42
+  // "Classic Sugar Cookies": 1800,
+  // "Coconut Sugar Cookies": 1800,
+  // "Chocolate Chip Cookies": 1800,
+  // "Chocolate Chip Cookies - 12 Pack": 3000,
+  // "Caramel Biscoff Cookies": 2100,
+  // "Butter Rolls": 2500,
 };
 
 /* -------------------------------------------
    PREORDER WINDOW LOGIC
 ------------------------------------------- */
 function isPreorderOpen() {
-  const FORCE_CLOSED = false;
-  if (FORCE_CLOSED) return false;
+  const FORCE_CLOSED = true;
+  if (FORCE_CLOSED) return true;
   const now = new Date();
   const day = now.getDay(); // 0 = Sunday
   const hour = now.getHours();
@@ -45,16 +47,17 @@ function isPreorderOpen() {
 export default function PreorderPage() {
   const preorderOpen = isPreorderOpen();
 
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    flavor: "",
-    quantity: 1,
-    pickupDay: "",
-    notes: "",
-    smsConsent: false,
-  });
+ const [form, setForm] = useState({
+  name: "",
+  email: "",
+  phone: "",
+  flavor: "",
+  boxSize: "",
+  quantity: 1,
+  pickupDay: "",
+  notes: "",
+  smsConsent: false,
+});
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -78,8 +81,8 @@ export default function PreorderPage() {
   }
 
   async function handleCheckout() {
-    const priceInCents = prices[form.flavor];
-    if (!priceInCents) throw new Error("Invalid flavor selected");
+    const priceInCents = prices[form.boxSize];
+    if (!priceInCents) throw new Error("Invalid box size selected");
 
     const response = await fetch(
       `${import.meta.env.VITE_API_URL}/api/checkout/create-session`,
@@ -87,7 +90,7 @@ export default function PreorderPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          productName: form.flavor,
+          productName: `${form.flavor} – ${form.boxSize}`,
           amount: priceInCents,
           quantity: form.quantity,
         }),
@@ -203,15 +206,21 @@ export default function PreorderPage() {
               required
               value={form.flavor}
               onChange={handleChange}
-              className="w-full border border-goodness-sugar px-3 py-2 rounded-lg text-sm"
-            >
-              <option value="">Select an item</option>
-              <option value="Classic Sugar Cookies">Sugar Cookies – 6 Pack ($18)</option>
-              <option value="Coconut Sugar Cookies">Coconut Sugar Cookies – 6 Pack ($18)</option>
-              <option value="Chocolate Chip Cookies">Chocolate Chip Cookies – 6 Pack ($18)</option>
-              <option value="Chocolate Chip Cookies - 12 Pack">Chocolate Chip Cookies – 12 Pack ($30)</option>
-              <option value="Caramel Biscoff Cookies">Caramel Biscoff Cookies – 6 Pack ($21)</option>
-              <option value="Butter Rolls">Butter Rolls – 12 Pack ($25)</option>
+              className="w-full border border-goodness-charcoal/10 px-4 py-3 rounded-xl text-sm bg-white">
+              <option value="">Select flavor </option>
+              <option value="Biscoff">Biscoff</option>
+              <option value="Chocolate">Chocolate</option>
+              <option value="Cookies & Cream">Cookies & Cream</option>
+            </select>
+
+            <select name="boxSize"
+                    required
+                    value={form.boxSize || ""}
+                    onChange={handleChange}
+                    className="w-full border border-goodness-charcoal/10 px-4 py-3 rounded-xl text-sm bg-white">
+              <option value="">Select box size</option>
+              <option value="6 Pack">6 Pack - $22</option>
+              <option value="12 Pack">12 Pack - $42</option>
             </select>
 
             <input

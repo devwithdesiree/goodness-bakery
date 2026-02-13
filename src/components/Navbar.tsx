@@ -11,7 +11,8 @@ export default function Navbar() {
     "text-goodness-gold underline underline-offset-4";
 
   return (
-    <header className="bg-goodness-white border-b border-goodness-charcoal/10 sticky top-0 z-50">
+    <header className="sticky top-0 z-50 bg-goodness-white/95 backdrop-blur border-b border-goodness-charcoal/10">
+
       <nav className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
 
         {/* LOGO */}
