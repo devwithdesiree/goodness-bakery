@@ -21,6 +21,9 @@ module.exports = {
           sugar: "#F4D9B5",
         },
       },
+      fontFamily:{
+        serifLogo: ['"Cormorant Garamond"', 'serif'],
+      },
       animation: {
     "spin-slow": "spin 2s linear infinite",
   },
