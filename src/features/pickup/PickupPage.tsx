@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { isPreorderOpen } from "./pickup.Constants";
+import { isPreorderOpen } from "./pickup.constants";
 import { usePickupForm } from "./usePickupForm";
 import PickupForm from "./PickupForm";
 

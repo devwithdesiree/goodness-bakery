@@ -12,8 +12,8 @@ import TermsPage from "./pages/TermsPage";
 import SuccessPage from "./pages/SuccessPage";
 import CancelPage from "./pages/CancelPage";
 import AboutPage from "./pages/AboutPage";
-import WholesalePage from "./pages/WholesalePage";
-import EventsPage from "./pages/EventsPage";
+import WholesalePage from "./features/wholesale/WholesalePage";
+import EventsPage from "./features/events/EventsPage";
 import PickupPage from "./features/pickup/PickupPage";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
