@@ -18,7 +18,7 @@ const prices: Record<string, number> = {
    PREORDER WINDOW LOGIC
 ------------------------------------------- */
 function isPreorderOpen() {
-  const FORCE_CLOSED = false;
+  const FORCE_CLOSED = true;
   if (FORCE_CLOSED) return false;
   const now = new Date();
   const day = now.getDay(); // 0 = Sunday
