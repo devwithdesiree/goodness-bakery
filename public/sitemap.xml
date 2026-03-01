@@ -17,7 +17,7 @@
 
   <!-- Preorder Page -->
   <url>
-    <loc>https://thegoodnessbakery.com/preorder</loc>
+    <loc>https://thegoodnessbakery.com/pickup</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
