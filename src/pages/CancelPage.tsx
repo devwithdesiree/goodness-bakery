@@ -2,28 +2,39 @@ import { Link } from "react-router-dom";
 
 export default function CancelPage() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 bg-goodness-cream/60">
-      <div className="bg-white shadow-lg border border-goodness-sugar rounded-3xl max-w-lg w-full p-8 text-center">
-        
-        <h1 className="text-2xl font-bold text-goodness-chocolate mb-3">
-          ❌ Payment Canceled
+    <section className="relative bg-goodness-beige min-h-[70vh] flex items-center justify-center px-6 py-24 overflow-hidden">
+
+      {/* Soft Background Texture */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-10"
+        style={{
+          backgroundImage: "url('/cookies-bg.jpg')",
+        }}
+      />
+
+      <div className="relative max-w-xl w-full bg-white border border-goodness-charcoal/10 rounded-2xl shadow-md p-10 text-center">
+
+        <h1 className="font-serifLogo text-3xl text-goodness-charcoal mb-4">
+          Payment Canceled
         </h1>
 
-        <p className="text-goodness-chocolate/80 text-sm mb-6 leading-relaxed">
-          It looks like the payment didn’t go through.  
-          No worries — you can try again whenever you're ready.  
-          Your treats are still waiting for you! 🍪
+        <div className="w-10 h-[2px] bg-goodness-gold mx-auto mb-6"></div>
+
+        <p className="text-goodness-muted leading-relaxed mb-8">
+          It looks like your payment didn’t go through.
+          No worries — your treats are still waiting for you.
+          You can return anytime to complete your order.
         </p>
 
         <Link
-          to="/preorder"
-          className="inline-block mt-6 px-6 py-3 rounded-full bg-goodness-caramel text-white font-medium shadow-md hover:shadow-lg transition"
+          to="/pickup"
+          className="inline-block px-8 py-3 rounded-full bg-goodness-gold text-white font-medium hover:opacity-90 transition"
         >
-          Try Again
+          Return to Order
         </Link>
 
-        <p className="mt-4 text-xs text-goodness-chocolate/60">
-          Need help? Contact me at tastethegoodnessbakery@gmail.com
+        <p className="mt-6 text-xs text-goodness-muted">
+          Need assistance? tastethegoodnessbakery@gmail.com
         </p>
       </div>
     </section>

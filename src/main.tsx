@@ -5,8 +5,6 @@ import "./index.css";
 import HomePage from "./pages/HomePage";
 import Layout from "./components/Layout";
 
-import MenuPage from "./pages/MenuPage";
-
 import PrivacyPage from "./pages/PrivacyPage";
 import TermsPage from "./pages/TermsPage";
 import SuccessPage from "./pages/SuccessPage";
@@ -22,7 +20,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/menu" element={<PickupPage />} />
           <Route path="/pickup" element={<PickupPage />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/wholesale" element={<WholesalePage />} />
