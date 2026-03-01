@@ -1,4 +1,3 @@
-
 import { Helmet } from "react-helmet";
 import WholesaleInquiryForm from "./WholesaleInquiryForm";
 
@@ -15,9 +14,21 @@ export default function WholesalePage() {
 
       <main className="bg-goodness-white min-h-screen">
 
-        {/* HERO */}
-        <section className="bg-goodness-beige py-24 px-4 text-center">
-          <div className="max-w-3xl mx-auto">
+        {/* HERO WITH IMAGE */}
+        <section className="relative py-32 px-4 text-center overflow-hidden">
+
+          {/* Background Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-50"
+            style={{
+              backgroundImage: "url('/coffee-shop.jpg')",
+            }}
+          />
+
+          {/* Soft Warm Overlay */}
+          <div className="absolute inset-0 bg-goodness-beige/75" />
+
+          <div className="relative max-w-3xl mx-auto">
             <h1 className="font-serifLogo text-4xl text-goodness-charcoal">
               Café & Wholesale Partnerships
             </h1>
@@ -68,15 +79,9 @@ export default function WholesalePage() {
         {/* HOW IT WORKS */}
         <section className="bg-goodness-beige py-16 px-4">
           <div className="max-w-2xl mx-auto text-center text-sm text-goodness-muted leading-relaxed space-y-3">
-            <p>
-              Minimum initial order: 40 cookies
-            </p>
-            <p>
-              Weekly or biweekly supply available
-            </p>
-            <p>
-              Wholesale pricing provided after inquiry review
-            </p>
+            <p>Minimum initial order: 40 cookies</p>
+            <p>Weekly or biweekly supply available</p>
+            <p>Wholesale pricing provided after inquiry review</p>
           </div>
         </section>
 

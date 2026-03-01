@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PRICES } from "./pickup.constants";
+
 import { sendOrderToFormspree, createStripeSession } from "./pickup.service";
 import type { PickupFormState } from "./pickup.types";
 
@@ -43,12 +43,12 @@ export function usePickupForm(formspreeEndpoint: string) {
 
       await sendOrderToFormspree(formspreeEndpoint, form);
 
-      const price = PRICES[form.boxSize];
-      if (!price) throw new Error("Invalid box size");
+      // const price = PRICES[form.boxSize];
+      // console.log("Selected box size:", form.boxSize, "Price:", price);
+      // if (!price) throw new Error("Invalid box size");
 
       const url = await createStripeSession(
-        `${form.flavor} - ${form.boxSize}`,
-        price,
+        form.boxSize,
         form.quantity
       );
 

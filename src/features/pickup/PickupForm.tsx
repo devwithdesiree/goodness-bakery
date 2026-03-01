@@ -76,8 +76,8 @@ export default function PickupForm({
         className="w-full border border-goodness-charcoal/10 px-3 py-2 rounded-md text-sm bg-white"
       >
         <option value="">Select box size</option>
-        <option value="6 Pack">6 Pack - $22</option>
-        <option value="12 Pack">12 Pack - $42</option>
+        <option value="6_PACK">6 Pack - $22</option>
+        <option value="12_PACK">12 Pack - $42</option>
       </select>
 
       <input

@@ -17,6 +17,9 @@ export default function WholesaleInquiryForm() {
       const response = await fetch("https://formspree.io/f/mqanbobk", {
         method: "POST",
         body: formData,
+        headers:{
+          "Accept": "application/json"
+        }
       });
 
       if (!response.ok) throw new Error("Failed");

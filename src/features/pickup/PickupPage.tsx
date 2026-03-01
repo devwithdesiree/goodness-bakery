@@ -14,17 +14,29 @@ export default function PickupPage() {
         <title>Order Pickup | Goodness Bakery</title>
       </Helmet>
 
-      <main className="bg-goodness-beige min-h-screen py-24 px-4">
+      <main className="relative min-h-screen py-24 px-4 overflow-hidden">
 
-        <div className="max-w-xl mx-auto">
+        {/* 🍪 Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-50"
+          style={{
+            backgroundImage: "url('cookies-bg.jpg')",
+          }}
+        />
+
+        {/* 🌤 Soft Warm Overlay */}
+        <div className="absolute inset-0 bg-goodness-beige/65 backdrop-blur-sm" />
+
+        {/* 📦 Content Wrapper */}
+        <div className="relative z-10 max-w-xl mx-auto">
 
           {/* HEADER */}
           <div className="text-center mb-10">
             <h1 className="font-serifLogo text-3xl text-goodness-charcoal">
               Order Pickup
             </h1>
-            <div className="w-12 h-[2px] bg-goodness-gold mx-auto mt-4"></div>
 
+            <div className="w-12 h-[2px] bg-goodness-gold mx-auto mt-4"></div>
 
             <p className="text-sm text-goodness-muted mt-3 leading-relaxed">
               Moore, Oklahoma · Orders close Thursday at 11:59 PM
@@ -35,7 +47,7 @@ export default function PickupPage() {
 
           {/* CLOSED STATE */}
           {!preorderOpen && (
-            <div className="bg-white border border-goodness-charcoal/10 rounded-xl p-6 text-center text-sm text-goodness-muted">
+            <div className="bg-white/95 border border-goodness-charcoal/10 rounded-xl p-6 text-center text-sm text-goodness-muted shadow-lg">
               Orders are currently closed.
               <br />
               Please check back Sunday.
@@ -44,7 +56,7 @@ export default function PickupPage() {
 
           {/* FORM CARD */}
           {preorderOpen && (
-            <div className="bg-white border border-goodness-charcoal/10 rounded-2xl p-8 shadow-md">
+            <div className="bg-white/95 border border-goodness-charcoal/10 rounded-2xl p-8 shadow-xl backdrop-blur-sm">
               <PickupForm
                 form={form}
                 loading={loading}
@@ -56,7 +68,6 @@ export default function PickupPage() {
           )}
 
         </div>
-
       </main>
     </>
   );

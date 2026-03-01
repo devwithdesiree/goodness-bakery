@@ -27,7 +27,6 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
           <Route path="/events" element={<EventsPage />} />
           <Route path="/wholesale" element={<WholesalePage />} />
           <Route path="/about" element={<AboutPage />} />
-
           {/* Optional but fine to keep */}
           <Route path="/success" element={<SuccessPage />} />
           <Route path="/cancel" element={<CancelPage />} />

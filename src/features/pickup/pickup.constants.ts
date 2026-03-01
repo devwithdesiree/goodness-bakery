@@ -1,10 +1,6 @@
-export const PRICES: Record<string, number> = {
-  "6 Pack": 2200,
-  "12 Pack": 4200,
-};
 
 export function isPreorderOpen() {
-  const FORCE_OPEN = true;
+  const FORCE_OPEN = false; // Set to true to force open the preorder form for testing
   if (FORCE_OPEN) return true;
 
   const now = new Date();

@@ -14,8 +14,7 @@ export async function sendOrderToFormspree(
 }
 
 export async function createStripeSession(
-  productName: string,
-  amount: number,
+  productKey: string,
   quantity: number
 ) {
   const response = await fetch(
@@ -24,12 +23,15 @@ export async function createStripeSession(
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        productName,
-        amount,
+        productKey,
         quantity,
       }),
     }
   );
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(errorText);
+  }
 
   const data = await response.json();
   return data.url;
